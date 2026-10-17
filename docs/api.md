@@ -48,6 +48,23 @@ The frontend talks to the backend only through this contract. Change it only aft
 | needs_human | true / false | A person must look at this pull request |
 | suggested_reply | text | A polite reply the reviewer can send, at most 400 characters |
 
+## Health check
+
+`GET /health`
+
+Tells the frontend that the server is running and which model answers.
+
+```json
+{ "status": "ok", "model": "gemma4:e4b" }
+```
+
+| Field | Meaning |
+|---|---|
+| status | Always `ok` when the server is running |
+| model | The model name when the real model is on (`PRISM_MODEL=ollama`), otherwise `fake` |
+
+It does not check that Ollama is reachable; a missing model shows up as a 503 on `/analyze`.
+
 ## Errors
 
 If the model is not available, the backend answers with status 503 and:
