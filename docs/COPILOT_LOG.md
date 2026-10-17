@@ -17,6 +17,18 @@ The user then asked to:
 
 The instructions describe Prism's current FastAPI, frontend, fake-model, Ollama, validation, dashboard, test, and CI behavior. They explicitly state that GitHub API integration is not implemented. They also define the English-for-code/documentation and simple-Turkish-for-team-explanations convention, repository boundaries, API-contract caution, safety requirements, and focused validation commands.
 
+## Tool attribution
+
+This work was performed in VS Code GitHub Copilot Chat.
+
+### Codex contribution
+
+Codex helped prepare the prompt and proposal wording, narrow the privacy rule to local Ollama inference and explicit approval for cloud inference, correct the explanation of `re.IGNORECASE`, and separate the `talks_to_reviewer` signal from the final `needs_human` decision. These were Codex-suggested corrections, not discoveries made independently by Copilot.
+
+### Copilot contribution
+
+Copilot produced the proposed instructions, edited the instruction and log files, and executed the six guard scenarios with the real `talks_to_reviewer` function without calling Ollama or Gemma.
+
 ## Review corrections applied
 
 - Scoped the inference rule to local Ollama use and added the explicit-approval requirement for cloud inference.
@@ -35,12 +47,12 @@ The instructions describe Prism's current FastAPI, frontend, fake-model, Ollama,
 
 ## Guard scenario verification
 
-The follow-up review corrected two points:
+The review incorporated the following corrections:
 
 - `re.IGNORECASE` provides Unicode-aware case-insensitive matching for the regex; it does not translate text or perform semantic analysis.
 - `talks_to_reviewer` is only the guard's match signal. A `False` result does not mean that human review is unnecessary. The final `needs_human` value also depends on the model response and the Ollama review path.
 
-On 18 October 2026, the six proposed scenarios were evaluated with the real `talks_to_reviewer` function using the project virtual environment. No Ollama or Gemma call was made, and no source or permanent test file was changed.
+On 18 October 2026, Copilot evaluated the six proposed scenarios with the real `talks_to_reviewer` function using the project virtual environment. No Ollama or Gemma call was made, and no source or permanent test file was changed.
 
 | # | Scenario | Expected `talks_to_reviewer` | Actual | Result |
 |---|---|---:|---:|---|
