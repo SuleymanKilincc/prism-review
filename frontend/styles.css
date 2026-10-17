@@ -6,3 +6,13 @@
 
 /* Existing desktop review flow: progress, model label and consistent name. */
 @media(min-width:861px){.brand{font-size:20px;letter-spacing:-1px;margin-inline:0}.brand-icon{width:29px;height:30px;font-size:23px;margin-right:7px}}.human-note{margin:0 0 18px}.demo-pill{max-width:360px;white-space:normal;line-height:1.5}.analysis-progress{display:flex;gap:12px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:13px;margin:14px 0}.analysis-progress[hidden]{display:none}.analysis-progress p{font-size:12px;margin:0 0 5px}.analysis-progress small{color:var(--muted);font-size:11px}.analysis-spinner{width:19px;height:19px;flex-shrink:0;border:2px solid var(--line);border-top-color:var(--green);border-radius:50%;animation:analysis-spin 1s linear infinite}@keyframes analysis-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.analysis-spinner{animation:none}}
+
+/* Presentation examples fill inputs only; submission stays explicit. */
+.review-examples{border:0;border-top:1px solid var(--line);margin:20px 0 0;padding:16px 0 0;min-width:0}
+.review-examples legend{float:left;width:100%;font-size:12px;font-weight:600;padding:0;margin-bottom:7px}
+.review-examples p{clear:both;font-size:11px;line-height:1.6;margin:0 0 10px}
+.example-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.example-buttons button{font-size:11px;padding:9px 11px;background:var(--soft);white-space:normal}
+.review-examples:disabled button{opacity:.5;cursor:wait}
+#example-status:empty{display:none}
+#example-status{margin:10px 0 0}
