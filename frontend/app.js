@@ -2,6 +2,7 @@ import {demoPRs, englishDemoPRs} from './data.js';
 import {filterPRs,formatSeconds} from './logic.js';
 import {analyzePR,readHealth} from './api.js';
 import {translate, localeFor} from './i18n.js';
+import {reviewExamples} from './examples.js';
 const $=s=>document.querySelector(s);
 const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const e=escapeHTML;
@@ -48,6 +49,19 @@ $('#settings-form').onsubmit=ev=>{
   refreshHealth();
 };
 let submitting=false;
+$('#review-examples').addEventListener('click', event => {
+  const button = event.target.closest('[data-example]');
+  if (!button || submitting) return;
+  const example = reviewExamples[button.dataset.example];
+  if (!example) return;
+  const form = $('#triage-form');
+  const hasChanges = ['title', 'description', 'diff'].some(name => form.elements[name].value.trim());
+  if (hasChanges && !window.confirm(t('replaceExample'))) return;
+  for (const name of ['title', 'description', 'diff']) form.elements[name].value = example[name];
+  form.querySelector('.form-error').textContent = '';
+  $('#example-status').textContent = t('exampleLoaded');
+  $('#example-status').dataset.i18n = 'exampleLoaded';
+});
 $('#triage-form').onsubmit=async ev=>{
   ev.preventDefault();
   if(submitting)return;
@@ -60,6 +74,7 @@ $('#triage-form').onsubmit=async ev=>{
   const button=form.querySelector('[type=submit]');
   const requestSettings={...settings};
   submitting=true;
+  $('#review-examples').disabled=true;
   button.disabled=true;
   $('[data-language]').disabled=true;
   button.textContent=t('analyzing');
@@ -105,6 +120,7 @@ $('#triage-form').onsubmit=async ev=>{
     clearInterval(elapsedTimer);
     progress.hidden=true;
     submitting=false;
+    $('#review-examples').disabled=false;
     button.disabled=false;
     $('[data-language]').disabled=false;
     button.textContent=t('analyze');

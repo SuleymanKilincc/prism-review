@@ -51,6 +51,16 @@
       <div><p id="analysis-progress-message" role="status" aria-live="polite"></p><small id="analysis-elapsed" aria-live="off"></small></div>
     </div>
     <button class="primary" type="submit" data-i18n="analyze">✧ Analiz et</button>
+    <fieldset id="review-examples" class="review-examples">
+      <legend data-i18n="examplesTitle">Hazır örnekle dene</legend>
+      <p class="muted" data-i18n="examplesHelp">İngilizce örnek girdiler alanları doldurur; sonuçlar önceden belirlenmez. Analizi sen başlatırsın.</p>
+      <div class="example-buttons">
+        <button type="button" data-example="typo" data-i18n="exampleTypo">Yazım düzeltmesi</button>
+        <button type="button" data-example="spam" data-i18n="exampleSpam">Spam örneği</button>
+        <button type="button" data-example="injection" data-i18n="exampleInjection">Kandırma girişimi</button>
+      </div>
+      <p id="example-status" class="muted" role="status" aria-live="polite"></p>
+    </fieldset>
   </form>
 </dialog>
 <dialog id="settings-dialog" aria-labelledby="settings-heading">
