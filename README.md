@@ -189,7 +189,7 @@ The stack is Python, FastAPI, Uvicorn, Pydantic, and Ollama, with plain HTML/CSS
 
 ## Evaluation
 
-The repository includes public PR inputs in `eval/raw/`. These inputs are **unlabelled**; they do not establish review accuracy. Follow [the evaluation guide](eval/README.md) to label cases independently and create `eval/labels.json` before running:
+The repository includes 22 public PR inputs in `eval/raw/`, with separate annotations in `eval/labels_eren.json` and `eval/labels_mehmet.json`. These are individual annotations, not reconciled ground truth. The separate `eval/labels_codex.json` file contains AI-generated suggestions and must not be described as independent human labels. Follow [the evaluation guide](eval/README.md) to resolve disagreements using a shared rubric and save the agreed labels as `eval/labels.json` before running:
 
 ```bash
 python eval/run_eval.py eval/raw --labels eval/labels.json
@@ -199,13 +199,40 @@ The runner calls Ollama directly and uses `PRISM_MODEL_NAME` (default `gemma4:e4
 
 The four exploratory cases in [the article notes](docs/ARTICLE_NOTES.md) were used to tune the prompt and are not an independent benchmark. Keep prompt-tuning cases separate from evaluation cases.
 
+### Preliminary runs on 22 PRs
+
+Two saved runs use `gemma4:e4b`, code commit `b0adfff`, prompt hash `189e450025c0`, and the same 22 PR inputs. Each run compares its predictions with one person's annotations. The reports are submitted in [PR #24](https://github.com/SuleymanKilincc/prism-review/pull/24); the links below pin the reviewed report revision.
+
+| Metric | Run compared with Mehmet's labels | Run compared with Eren's labels |
+|---|---:|---:|
+| PRs evaluated | 22 | 22 |
+| Category matches | 19/22 | 5/22 |
+| `needs_human` matches | 12/22 | 9/22 |
+| Valid JSON on first try | 22/22 | 22/22 |
+| Median seconds per case, excluding warm-up | 1.78 | 1.83 |
+| Failed cases | 0 | 0 |
+| Saved report | [01:52 run](https://github.com/SuleymanKilincc/prism-review/blob/5b307af72835eafaef3faee498a144b83f03824e/eval/results/20261018-015213.json) | [01:53 run](https://github.com/SuleymanKilincc/prism-review/blob/5b307af72835eafaef3faee498a144b83f03824e/eval/results/20261018-015300.json) |
+
+**These are comparisons with individual annotations, not accuracy against agreed ground truth.** The two annotators agree on category for 5/22 cases and on `needs_human` for 15/22. Eren received AI-generated explanations and summaries before submitting labels; see [PR #22](https://github.com/SuleymanKilincc/prism-review/pull/22) for that context. Annotation methods and the shared rubric must be documented when reporting reconciled results.
+
+Category predictions match across the two runs, but `needs_human` differs for `pr06` and `pr20`; complete responses also differ. These are separate inference runs, not one set of answers scored twice. Report metadata omits the label-file path; each run's annotations were identified by matching all saved `expected` entries to the corresponding label file.
+
+The sample is small and selected through keyword searches. There is no separate test split. Timing covers the review call after warm-up, not the complete browser request. Keep these PR-classification results separate from the prompt-injection experiments in [the article notes](docs/ARTICLE_NOTES.md).
+
+<!-- Reserved for a reconciled evaluation table: add agreed-label provenance,
+annotation-method limitations, model/prompt/commit metadata, and a saved report.
+Do not replace individual-run results with an unsupported headline accuracy.
+-->
+
 ## Limitations and next steps
 
 - Reviews can be wrong, including overlooking tests already present in a diff. Human review remains necessary.
 - Long diffs are truncated, and the model does not inspect the rest of a repository.
-- PRs must be entered manually; GitHub fetching and comment posting are not connected.
+- Add GitHub integration to import PR titles, descriptions, and diffs; any future comment posting must require human approval. PRs currently have to be entered manually.
+- Add contributor history as review context; it is not currently fetched or considered.
+- Add a readiness check that verifies Ollama connectivity and availability of the configured model. The current `/health` endpoint only reports the running API and configured model name.
 - The dashboard uses session-only PR data rather than a persistent database.
-- Complete independent labelling and run the evaluation before reporting quality metrics.
+- Reconcile the individual annotations, record annotation assistance and rubric decisions, and run the evaluation before reporting quality metrics.
 
 ## Contributing
 

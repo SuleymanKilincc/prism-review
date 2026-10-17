@@ -2,6 +2,15 @@
 
 Raw notes for the DEV article. Numbers here must be re-derived from the saved outputs before they go into the article.
 
+
+## Documentation handoff (18 Oct 2026)
+
+README roadmap explicitly lists contributor history, GitHub integration, and an Ollama/model readiness check. The README includes preliminary 22-PR results from PR #24, pinned to report commit `5b307af72835eafaef3faee498a144b83f03824e`. Counts and median timings were recomputed from both reports, and every saved expected label matches the corresponding individual annotation file. Agreed labels are still separate work.
+
+Correction for PR #24's description at the time of review: the two runs do not have identical model answers. Categories match across all 22 cases, but `needs_human` differs for `pr06` and `pr20`. Full responses differ for `pr01`, `pr03`, `pr06`, and `pr20`. Do not describe these as one set of model answers scored twice.
+
+PR #17 is merged with passing CI. `docs/COPILOT_SLIDE_NOTES.md` provides slide copy and speaker notes with separate Copilot/Codex attribution. The saved Copilot screenshot supports instruction drafting, not scenario execution. The six-case findings concern the original guard; PR #19 contains subsequent guard changes.
+
 ## Prompt v1 -> v2 (4 hand-picked cases, 17 Oct 2026 night)
 
 Model `gemma4:e4b` via Ollama, temperature 0, think=False, num_ctx 8192. Same 4 cases before and after; v2 was run twice with identical output.
