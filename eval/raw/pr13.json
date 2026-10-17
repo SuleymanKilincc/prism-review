@@ -1,0 +1,7 @@
+{
+ "id": "pr13",
+ "title": "Fix typos",
+ "description": "",
+ "diff": "diff --git a/34.md b/34.md\nindex c70c355512..8927ec2c07 100644\n--- a/34.md\n+++ b/34.md\n@@ -25,7 +25,7 @@ Git repositories are hosted in Git-enabled servers, but their existence can be a\n     [\"relays\", \"<relay-url>\", ...], // relays that this repository will monitor for patches and issues\n     [\"r\", \"<earliest-unique-commit-id>\", \"euc\"],\n     [\"maintainers\", \"<other-recognized-maintainer>\", ...],\n-    [\"u\",\"30617:<pubkey>:<identifer>|<git-url-https-prefered>\",\"<relay-hint>\",\"<author-pubkey>\"], // optionally indicate repository is a subordinate fork\n+    [\"u\",\"30617:<pubkey>:<identifier>|<git-url-https-preferred>\",\"<relay-hint>\",\"<author-pubkey>\"], // optionally indicate repository is a subordinate fork\n     [\"t\", \"<arbitrary string>\"], // hashtags labelling the repository\n   ]\n }\n",
+ "url": "https://github.com/nostr-protocol/nips/pull/2503"
+}

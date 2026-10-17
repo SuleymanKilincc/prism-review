@@ -1,0 +1,7 @@
+{
+ "id": "pr08",
+ "title": "Update GitHub Actions workflow permissions and token",
+ "description": "",
+ "diff": "diff --git a/.github/workflows/sync-with-source.yml b/.github/workflows/sync-with-source.yml\nindex c37ae25..0868cc1 100644\n--- a/.github/workflows/sync-with-source.yml\n+++ b/.github/workflows/sync-with-source.yml\n@@ -8,6 +8,7 @@ on:\n permissions: \n   contents: write\n   pull-requests: write\n+  repository-projects: write\n \n jobs:\n   sync:\n@@ -24,7 +25,7 @@ jobs:\n           git push origin sync/upstream --force\n       - name: Update PR\n         env:\n-          GH_TOKEN: ${{ secrets.SYNC_DEMO1 }}\n+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n         run: |\n           gh pr create --base main --head sync/upstream \\\n             --title \"Sync from upstream\" \\\n",
+ "url": "https://github.com/yarikshevchuk/DevOps-Demo1/pull/3"
+}

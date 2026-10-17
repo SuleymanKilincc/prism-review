@@ -1,0 +1,7 @@
+{
+ "id": "pr02",
+ "title": "Update GitHub Actions workflow permissions",
+ "description": "Added permissions for GitHub Actions to access contents and write pull requests.",
+ "diff": "diff --git a/.github/workflows/tests.yml b/.github/workflows/tests.yml\nindex b3c6ef5..0bea2d3 100644\n--- a/.github/workflows/tests.yml\n+++ b/.github/workflows/tests.yml\n@@ -4,6 +4,10 @@ on:\n   push:\n   pull_request:\n \n+permissions:\n+  contents: read\n+  pull-requests: write\n+\n jobs:\n   test:\n     runs-on: ubuntu-latest\n@@ -22,4 +26,3 @@ jobs:\n \n       - name: Run tests\n         run: python -m unittest discover -s tests -t . -p \"test*.py\" -v\n-\n",
+ "url": "https://github.com/PeriodicProgrammer/Wiki_maintance_tools/pull/2"
+}

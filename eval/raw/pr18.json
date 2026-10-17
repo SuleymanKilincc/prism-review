@@ -1,0 +1,7 @@
+{
+ "id": "pr18",
+ "title": "Added my name to Hacktoberfest post",
+ "description": "First pull request for Hacktoberfest! Added my name to the list of contributors. \n",
+ "diff": "diff --git a/_posts/2016-09-30-hacktoberfest.md b/_posts/2016-09-30-hacktoberfest.md\nindex d96c597..0aac5b1 100644\n--- a/_posts/2016-09-30-hacktoberfest.md\n+++ b/_posts/2016-09-30-hacktoberfest.md\n@@ -10,6 +10,7 @@ Welcome to Hacktoberfest!\n Contributing to Hacktoberfest? Please add your name and Github username below and maybe a description of what you'd like to achieve by the end of the month.\n \n - Some Person ([Contributor Name](https://github.com/username))\n+- Some Person ([Contributor Name](https://github.com/username)) I want to contribute to some local projects and at least one code submission. Either fixes or a new feature.\n \n If you have a project that you'd like contributions for, please add it below:\n \n",
+ "url": "https://github.com/HackSocNotts/hacksocnotts.co.uk-deprecated/pull/13"
+}

@@ -1,0 +1,7 @@
+{
+ "id": "pr12",
+ "title": "Improve documentation",
+ "description": "Closes #2\r\n\r\nThis PR improves the project documentation and adds a short explanation of the project workflow.\r\n\r\nThe changes make the contribution process clearer for new contributors.",
+ "diff": "diff --git a/README.md b/README.md\nindex 8c01fd9..1b90ff5 100644\n--- a/README.md\n+++ b/README.md\n@@ -6,4 +6,7 @@ This project is used to practice Git and GitHub collaboration workflows.\n - Open an issue\n - Create a branch\n - Submit a pull request\n-- Review the project documentation before contributing to understand the project and its workflow\n\\ No newline at end of file\n+- Review the project documentation before contributing to understand the project and its workflow\n+\n+## Project workflow\n+Changes should be discussed through issues and submitted through pull requests for review before being merged into the main branch. This process helps contributors understand the project workflow and receive feedback before changes are integrated.\n\\ No newline at end of file\n",
+ "url": "https://github.com/reihaneyousefi04-rgb/collaboration-demo/pull/4"
+}

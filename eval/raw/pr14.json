@@ -1,0 +1,7 @@
+{
+ "id": "pr14",
+ "title": "fix: typo",
+ "description": "",
+ "diff": "diff --git a/.github/workflows/deploy.yml b/.github/workflows/deploy.yml\nindex 226107e..6039a5b 100644\n--- a/.github/workflows/deploy.yml\n+++ b/.github/workflows/deploy.yml\n@@ -111,9 +111,9 @@ jobs:\n           VITE_API_URL: /api\n           VITE_S3_ICON_BUCKET: ${{ steps.deploy_aws.outputs.icon_bucket_url }}\n           VITE_S3_MEDIA_BUCKET: ${{ steps.deploy_aws.outputs.media_bucket_url }}\n-          VITE_UMAMI_SCRIPT_URL=: ${{ secrets.UMAMI_SCRIPT_URL }}\n-          VITE_UMAMI_WEBSITE_ID=: ${{ secrets.UMAMI_WEBSITE_ID }}\n-          VITE_UMAMI_DASHBOARD_URL=: ${{ secrets.UMAMI_DASHBOARD_URL }}\n+          VITE_UMAMI_SCRIPT_URL: ${{ secrets.UMAMI_SCRIPT_URL }}\n+          VITE_UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}\n+          VITE_UMAMI_DASHBOARD_URL: ${{ secrets.UMAMI_DASHBOARD_URL }}\n         run: |\n           npx vite build\n \n",
+ "url": "https://github.com/odisfm/hapi/pull/130"
+}

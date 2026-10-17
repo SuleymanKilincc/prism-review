@@ -1,0 +1,7 @@
+{
+ "id": "pr01",
+ "title": "HacktoberFest: Adding my name",
+ "description": "Add name and username",
+ "diff": "diff --git a/README.md b/README.md\nindex d42aef7..65dcb50 100644\n--- a/README.md\n+++ b/README.md\n@@ -39,6 +39,7 @@ Veja todas as regras em https://hacktoberfest.com/\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n+- [Contributor Name](https://github.com/username)\n \n ### Adiciona o teu nome\n \n",
+ "url": "https://github.com/mozdevz/Hacktoberfest/pull/127"
+}
