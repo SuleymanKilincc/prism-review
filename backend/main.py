@@ -1,3 +1,5 @@
+import os
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -6,11 +8,26 @@ from fastapi.staticfiles import StaticFiles
 from .fake_model import ModelUnavailable, fake_review
 from .schema import AnalyzeRequest, AnalyzeResponse
 
-app = FastAPI(title="prism")
+# PRISM_MODEL=ollama uses the real local model. Anything else (the default) uses the
+# fake model, so tests, CI and the UI work without a GPU.
+USE_OLLAMA = os.environ.get("PRISM_MODEL", "fake") == "ollama"
 
-# The function that reviews a PR. Today it is the fake model;
-# later we swap in the real Ollama client here.
-run_model = fake_review
+
+@asynccontextmanager
+async def lifespan(app):
+    if USE_OLLAMA:
+        from .model_client import warm_up
+
+        warm_up()
+    yield
+
+
+app = FastAPI(title="prism", lifespan=lifespan)
+
+if USE_OLLAMA:
+    from .model_client import ollama_review as run_model
+else:
+    run_model = fake_review
 
 
 @app.get("/health")
