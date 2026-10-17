@@ -108,6 +108,7 @@ An `AGENTS.md` tells AI coding assistants the repo rules (never auto-merge, PR t
 ## Limits and what is next
 
 - The model can be wrong; a human always decides.
+- The evaluation set is small, so any accuracy number is uncertain.
 - `/health` reports the configured model name but does not check that Ollama is reachable. A real health check is next.
 - Only the first 6000 characters of a diff are read; large pull requests need a smarter split.
 - Next: fetch the diff from a GitHub link, use contributor history to spot repeated spam, and package it with Docker.
