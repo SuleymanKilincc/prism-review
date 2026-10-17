@@ -79,7 +79,7 @@ Still not caught by the guard: persuasion without command words (inj10, new06) a
 
 Model `gemma4:e4b`, temperature 0, think=False, num_ctx 8192, code at commit `b0adfff` (guard v2 included), prompt hash `189e450025c0` (the same as the current prompt). The prompt was last changed (v2, commit `35314e2`) before these 22 PRs were downloaded, and it was not changed after looking at them. Cases: `eval/raw` (22 real public PRs, all labelled, none skipped). Nothing failed (no 503). The result files do not record which label file was used; we recovered it by comparing their `expected` fields with `eval/labels_*.json`.
 
-### Two runs, same model answers, different labellers
+### Two runs (nearly the same model answers), two labellers
 
 | | Mehmet's labels | Eren's labels |
 |---|---|---|
@@ -89,7 +89,7 @@ Model `gemma4:e4b`, temperature 0, think=False, num_ctx 8192, code at commit `b0
 | Valid JSON on first try | 22 / 22 | 22 / 22 |
 | Seconds per case (warm-up excluded) | median 1.78, mean 1.93, max 2.82 | median 1.83, mean 1.89, max 2.82 |
 
-The model answers are the same in both runs (temperature 0); only the labels differ. Timing differences between the two are noise.
+Correction to our first version of these notes: the model answers are NOT identical in the two runs, although temperature is 0. The category is the same in all 22 cases, but `needs_human` differs for pr06 and pr20, and other fields (wording) differ for pr01, pr03, pr06 and pr20 (checked by comparing the two result files). So the two columns differ mainly because of the labels, but not only. Timing differences between the two runs are noise.
 
 ### How much the labellers agree with each other (22 PRs)
 
