@@ -33,3 +33,22 @@ jobs:
 
       - name: Run backend tests
         run: python -m pytest backend/tests -v
+
+  frontend-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          package-manager-cache: false
+
+      - name: Run frontend tests
+        run: node --test frontend/tests/frontend.test.mjs
