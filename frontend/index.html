@@ -1,18 +1,64 @@
 <!doctype html>
 <html lang="tr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>OSS-Triage · Katkıları anlamlandır.</title><link rel="stylesheet" href="styles.css"><script type="module" src="app.js"></script></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>OSS-Triage · Katkıları anlamlandır.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
 <body>
 <aside class="sidebar">
- <a class="brand" href="#dashboard"><span class="brand-icon">⌘</span> oss<span>triage</span><span class="brand-dot">.</span></a>
- <div class="workspace"><div class="avatar">L</div><div><strong>Localhost</strong><small>Hacktoberfest 2026</small></div><span class="workspace-arrow">⌄</span></div>
- <p class="nav-label">ÇALIŞMA ALANI</p>
- <nav aria-label="Ana menü"><a href="#dashboard" data-page="dashboard"><span>◫</span> Genel bakış</a><a href="#pull-requests" data-page="pull-requests"><span>⑂</span> Pull request’ler <b id="nav-count">12</b></a><a href="#analytics" data-page="analytics"><span>▥</span> Analitik</a></nav>
- <div class="sidebar-bottom"><div class="local-card"><span class="status-dot"></span><strong>Yerel zekâ. Tam kontrol.</strong><p>Gemma için tasarlandı.<br>Son karar her zaman sende.</p><span class="local-tag">OSS / LOCAL FIRST</span></div><button id="theme" class="theme-button"><span>◐</span> Temayı değiştir</button><div class="profile"><span class="avatar mint">LT</span><div><strong>Localhost takımı</strong><small>Maintainer workspace</small></div></div></div>
+  <a class="brand" href="#dashboard"><span class="brand-icon">⌘</span> oss<span>triage</span><span class="brand-dot">.</span></a>
+  <div class="workspace"><div class="avatar">L</div><div><strong>Localhost</strong><small>Hacktoberfest 2026</small></div><span class="workspace-arrow">⌄</span></div>
+  <p class="nav-label" data-i18n="workspace">ÇALIŞMA ALANI</p>
+  <nav aria-label="Workspace" data-i18n-aria-label="workspace">
+    <a href="#dashboard" data-page="dashboard" data-i18n-aria-label="overview"><span aria-hidden="true">◫</span><span class="nav-text" data-i18n="overview">Genel bakış</span></a>
+    <a href="#pull-requests" data-page="pull-requests" data-i18n-aria-label="pullRequests"><span aria-hidden="true">⑂</span><span class="nav-text" data-i18n="pullRequests">Pull request’ler</span><b id="nav-count">12</b></a>
+    <a href="#analytics" data-page="analytics" data-i18n-aria-label="analytics"><span aria-hidden="true">▥</span><span class="nav-text" data-i18n="analytics">Analitik</span></a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="local-card"><span class="status-dot"></span><strong data-i18n="localTitle">Yerel zekâ. Tam kontrol.</strong><p data-i18n="localBody">Gemma için tasarlandı. Son karar her zaman sende.</p><span class="local-tag">OSS / LOCAL FIRST</span></div>
+    <button id="theme" class="theme-button"><span aria-hidden="true">◐</span><span data-i18n="theme">Temayı değiştir</span></button>
+    <div class="profile"><span class="avatar mint">LT</span><div><strong data-i18n="team">Localhost takımı</strong><small>Maintainer workspace</small></div></div>
+  </div>
 </aside>
-<div class="app-shell"><header class="topbar"><div class="breadcrumb">Çalışma alanı <span>/</span> <strong id="breadcrumb">Genel bakış</strong></div><div class="top-actions"><span class="demo-pill"><i></i> Demo modu</span><button id="settings" class="icon-button" aria-label="API ayarları" title="API ayarları">⚙</button><span class="avatar small">LT</span></div></header>
-<main id="main"></main><footer>Localhost tarafından, açık kaynak için. <span>Hacktoberfest ’26 <i>✳</i></span></footer></div>
-<dialog id="detail-dialog" class="detail-dialog"><div id="detail-content"></div></dialog>
-<dialog id="add-dialog"><form id="triage-form"><div class="dialog-heading"><div><p class="eyebrow">YENİ İNCELEME</p><h2>Bir katkıyı anlamlandır.</h2></div><button type="button" class="icon-button close-dialog" aria-label="Kapat">×</button></div><p class="muted">PR bilgilerini ekle. Demo modunda örnek bir değerlendirme oluşturulur.</p><label>PR başlığı<input required name="title" placeholder="fix: oturum kontrolünü düzelt" maxlength="180"></label><label>Açıklama<textarea name="body" required rows="3" placeholder="Bu PR hangi sorunu çözüyor?"></textarea></label><label>Kod değişiklikleri (diff)<textarea name="diff" required rows="5" class="code-input" placeholder="- eski satır&#10;+ yeni satır"></textarea></label><p class="form-error" role="alert"></p><button class="primary" type="submit">✧ Analiz et</button></form></dialog>
-<dialog id="settings-dialog"><form id="settings-form"><div class="dialog-heading"><h2>Bağlantı ayarları</h2><button type="button" class="icon-button close-dialog" aria-label="Kapat">×</button></div><p class="muted">API modu, eklediğin yeni PR’ları FastAPI sunucusuna gönderir. Mevcut örnekler demo verisi olarak kalır.</p><label>Çalışma modu<select name="mode"><option value="demo">Demo — örnek değerlendirme</option><option value="api">API — gerçek backend</option></select></label><label>Backend adresi<input name="url" type="url" required placeholder="http://localhost:8000"></label><p class="muted">POST /triage · CORS izni backend’de tanımlanmalıdır.</p><button class="primary">Ayarları kaydet</button></form></dialog>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="breadcrumb"><span class="breadcrumb-label" data-i18n="workspace">ÇALIŞMA ALANI</span><span>/</span><strong id="breadcrumb">Genel bakış</strong></div>
+    <div class="top-actions">
+      <select class="language-select" data-language aria-label="Arayüz dili" data-i18n-aria-label="language"><option value="tr">Türkçe</option><option value="en">English</option></select>
+      <span class="demo-pill"><i></i> Demo modu</span>
+      <button id="settings" class="icon-button" aria-label="API ayarları" title="API ayarları" data-i18n-aria-label="settings" data-i18n-title="settings">⚙</button>
+      <span class="avatar small">LT</span>
+    </div>
+  </header>
+  <main id="main"></main>
+  <footer><span data-i18n="footer">Localhost tarafından, açık kaynak için.</span><span>Hacktoberfest ’26 <i>✳</i></span></footer>
+</div>
+<dialog id="detail-dialog" class="detail-dialog" aria-label="PR details" data-i18n-aria-label="detail"><div id="detail-content"></div></dialog>
+<dialog id="add-dialog" aria-labelledby="add-heading">
+  <form id="triage-form">
+    <div class="dialog-heading"><div><p class="eyebrow" data-i18n="newReview">YENİ İNCELEME</p><h2 id="add-heading" data-i18n="addTitle">Bir katkıyı anlamlandır.</h2></div><button type="button" class="icon-button close-dialog" aria-label="Kapat" data-i18n-aria-label="close">×</button></div>
+    <p class="muted" data-i18n="addHelp">PR bilgilerini ekle. Demo modunda örnek bir değerlendirme oluşturulur.</p>
+    <label><span data-i18n="prTitle">PR başlığı</span><input required name="title" placeholder="fix: oturum kontrolünü düzelt" data-i18n-placeholder="titlePlaceholder" maxlength="180"></label>
+    <label><span data-i18n="description">Açıklama (isteğe bağlı)</span><textarea name="description" rows="3" placeholder="Bu PR hangi sorunu çözüyor?" data-i18n-placeholder="descriptionPlaceholder"></textarea></label>
+    <label><span data-i18n="diff">Kod değişiklikleri (diff)</span><textarea name="diff" required rows="5" class="code-input" placeholder="- eski satır&#10;+ yeni satır" data-i18n-placeholder="diffPlaceholder"></textarea></label>
+    <p class="form-error" role="alert"></p>
+    <button class="primary" type="submit" data-i18n="analyze">✧ Analiz et</button>
+  </form>
+</dialog>
+<dialog id="settings-dialog" aria-labelledby="settings-heading">
+  <form id="settings-form">
+    <div class="dialog-heading"><h2 id="settings-heading" data-i18n="connection">Bağlantı ayarları</h2><button type="button" class="icon-button close-dialog" aria-label="Kapat" data-i18n-aria-label="close">×</button></div>
+    <p class="muted" data-i18n="connectionHelp">API modu yeni PR’ları FastAPI sunucusuna gönderir.</p>
+    <label><span data-i18n="mode">Çalışma modu</span><select name="mode"><option value="demo" data-i18n="demoOption">Demo — örnek değerlendirme</option><option value="api" data-i18n="apiOption">API — backend değerlendirmesi</option></select></label>
+    <label><span data-i18n="backendUrl">Backend adresi</span><input name="url" type="url" required placeholder="http://127.0.0.1:8000"></label>
+    <p class="muted" data-i18n="apiHelp">POST /analyze · Frontend FastAPI’den açılıyorsa sayfanın adresini kullan.</p>
+    <button class="primary" data-i18n="save">Ayarları kaydet</button>
+  </form>
+</dialog>
 <div id="toast" role="status"></div>
-</body></html>
+</body>
+</html>
