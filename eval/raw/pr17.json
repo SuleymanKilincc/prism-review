@@ -1,0 +1,7 @@
+{
+ "id": "pr17",
+ "title": "Improved documentation  ",
+ "description": "text segment can be any piece of text in the code,\nit doesn't have the be exactly a comment, whiteline, or AST node.\nIt can be an AST node with its associated trivia.\nIt can even be a match result of a regex (and thus have no relation to AST at all). ",
+ "diff": "diff --git a/src/renaissance/syntax_tree/text_segment.py b/src/renaissance/syntax_tree/text_segment.py\nindex f9e34128..38e9b49d 100644\n--- a/src/renaissance/syntax_tree/text_segment.py\n+++ b/src/renaissance/syntax_tree/text_segment.py\n@@ -8,7 +8,11 @@ class TextSegment(Protocol):\n     \"\"\"Protocol for anything that represents a text segment.\n \n     A text segment is a consecutive piece, a.k.a. a slice, within a text.\n-    Instances include comments, whitespace (incl. empty lines), and syntax nodes.\n+    Any consecutive piece of text qualifies;\n+    it need not correspond to a single syntactic construct.\n+    Instances include comments, whitespace (incl. empty lines), syntax nodes,\n+    combinations thereof, such as a syntax node together with its associated trivia,\n+    and even a regular expression match, which has no relation to a syntax tree at all.\n \n     Read-only access is enforced \"as much as possible\" by\n     exposing only @user getters in the protocol.\n",
+ "url": "https://github.com/TNO/Renaissance.Py/pull/267"
+}

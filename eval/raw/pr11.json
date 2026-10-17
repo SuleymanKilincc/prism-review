@@ -1,0 +1,7 @@
+{
+ "id": "pr11",
+ "title": "added my name",
+ "description": "as part of Hacktoberfest added my name to this repo",
+ "diff": "diff --git a/Contributors.md b/Contributors.md\nindex 7cbe00408474..661ef58e1713 100644\n--- a/Contributors.md\n+++ b/Contributors.md\n@@ -72,6 +72,7 @@\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n+- [Some Person] (https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n@@ -197,7 +198,6 @@\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n-- [Some Person]()\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n",
+ "url": "https://github.com/firstcontributions/first-contributions/pull/9935"
+}

@@ -1,0 +1,7 @@
+{
+ "id": "pr22",
+ "title": "Adding contributor name",
+ "description": "Making my first PR for Hacktoberfest - Adding my name and Github profile link.",
+ "diff": "diff --git a/Contributors.md b/Contributors.md\nindex 9a6e111..3b858cd 100644\n--- a/Contributors.md\n+++ b/Contributors.md\n@@ -90,6 +90,7 @@\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n - [Contributor Name](https://github.com/username)\n+- [Contributor Name](https://github.com/username)\n \n # S\n - [Contributor Name](https://github.com/username)\n",
+ "url": "https://github.com/C0D1NG/C0D1NG/pull/102"
+}

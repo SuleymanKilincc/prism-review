@@ -1,0 +1,7 @@
+{
+ "id": "pr15",
+ "title": "fix typos",
+ "description": "",
+ "diff": "diff --git a/libi2pd_client/TorrentsRPC.cpp b/libi2pd_client/TorrentsRPC.cpp\nindex c0331d16187..fdc0d412da3 100644\n--- a/libi2pd_client/TorrentsRPC.cpp\n+++ b/libi2pd_client/TorrentsRPC.cpp\n@@ -543,14 +543,14 @@ namespace torrents\n \t\t\t\tpeer[\"port\"] = TORRENT_PORT;\n \t\t\t\tpeer[\"identHash\"] = identHashStr;\n \t\t\t\tpeer[\"clientName\"] = it->GetRemoteName ().empty () ? RecognizeClientByPeerID (it->GetRemotePeerID ()) : it->GetRemoteName ();\n-\t\t\t\tpeer[\"isDowloadingFrom\"] = it->IsDownloading ();\n+\t\t\t\tpeer[\"isDownloadingFrom\"] = it->IsDownloading ();\n \t\t\t\tpeer[\"isUploadingTo\"] = it->IsUploading ();\n \t\t\t\tpeer[\"rateToClient\"] = it->GetDownloadRate ();\n \t\t\t\tpeer[\"rateToPeer\"] = it->GetUploadRate ();\n \t\t\t\tpeer[\"isIncoming\"] = isIncoming;\n \t\t\t\tpeer[\"clientIsChoked\"] = it->IsChoked ();\n \t\t\t\tpeer[\"peerIsChoked\"] = it->IsRemoteChoked ();\n-\t\t\t\tpeer[\"clientIsIntersted\"] = it->IsInterested ();\n+\t\t\t\tpeer[\"clientIsInterested\"] = it->IsInterested ();\n \t\t\t\tpeer[\"peerIsInterested\"] = it->IsRemoteInterested ();\n \t\t\t\tif (it->IsDownloading ())\n \t\t\t\t\tflags.push_back ('D');\n",
+ "url": "https://github.com/PurpleI2P/i2pd/pull/2599"
+}

@@ -1,0 +1,7 @@
+{
+ "id": "pr03",
+ "title": "Fix typo",
+ "description": "Fix typo from #155 and #156",
+ "diff": "diff --git a/ConselvaBudget/Areas/Spending/Pages/Requests/Index.cshtml b/ConselvaBudget/Areas/Spending/Pages/Requests/Index.cshtml\nindex d003e3f..9243c45 100644\n--- a/ConselvaBudget/Areas/Spending/Pages/Requests/Index.cshtml\n+++ b/ConselvaBudget/Areas/Spending/Pages/Requests/Index.cshtml\n@@ -246,7 +246,7 @@ else\n @user (Model.SpendingRequests.Where(r => r.Status == Models.RequestStatus.Approved).Any())\n {\n     <table class=\"table table-bordered table-striped caption-top\">\n-        <caption>@user[\"TITLE_APPROVED_REQUESTS\"] (@user))</caption>\n+        <caption>@user[\"TITLE_APPROVED_REQUESTS\"] (@user)</caption>\n         <thead>\n             <tr>\n                 <th>\n",
+ "url": "https://github.com/febog/conselva-budget/pull/157"
+}
