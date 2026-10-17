@@ -35,9 +35,10 @@ Why local: client code never leaves the laptop, zero cost per PR, works offline,
   Earlier private experiments are only background: re-measure everything for the article tonight.
 
 ## Roles (branch per task, small pull requests)
-1. AI / backend (<Süleyman(me)>): backend/, schema, prompt, model client, evaluation.
-2. Frontend (<Mehmet>): frontend/, cards, colours, demo flow.
-3. DevOps / docs / pitch (<Eren>): repo, GitHub Actions CI, README, article, slides, demo video.
+1. AI / backend (Suleyman): backend/, docs/api.md, schema, prompt, model client, evaluation.
+2. Frontend look (Mehmet): frontend/index.html and style.css, demo video, slides.
+3. DevOps and integration (Eren): .github/ (CI), README, frontend/app.js (the fetch call to the backend), docs/.
+Suleyman writes docs/api.md first; everyone builds against it. Nobody edits another person's files without asking.
 
 ## Working rules
 - Small steps. After each step run it, show the result, and explain in 2-3 simple Turkish sentences what changed and why.
