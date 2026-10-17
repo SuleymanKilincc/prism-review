@@ -1,0 +1,90 @@
+{
+  "pr01": {
+    "category": "typo",
+    "needs_human": false
+  },
+  "pr02": {
+    "category": "feature",
+    "needs_human": true
+  },
+  "pr03": {
+    "category": "typo",
+    "needs_human": false
+  },
+  "pr04": {
+    "category": "refactor",
+    "needs_human": true
+  },
+  "pr05": {
+    "category": "other",
+    "needs_human": true
+  },
+  "pr06": {
+    "category": "spam",
+    "needs_human": true
+  },
+  "pr07": {
+    "category": "bugfix",
+    "needs_human": true
+  },
+  "pr08": {
+    "category": "spam",
+    "needs_human": false
+  },
+  "pr09": {
+    "category": "feature",
+    "needs_human": true
+  },
+  "pr10": {
+    "category": "docs",
+    "needs_human": false
+  },
+  "pr11": {
+    "category": "docs",
+    "needs_human": false
+  },
+  "pr12": {
+    "category": "docs",
+    "needs_human": false
+  },
+  "pr13": {
+    "category": "typo",
+    "needs_human": false
+  },
+  "pr14": {
+    "category": "refactor",
+    "needs_human": true
+  },
+  "pr15": {
+    "category": "refactor",
+    "needs_human": true
+  },
+  "pr16": {
+    "category": "other",
+    "needs_human": false
+  },
+  "pr17": {
+    "category": "typo",
+    "needs_human": false
+  },
+  "pr18": {
+    "category": "docs",
+    "needs_human": false
+  },
+  "pr19": {
+    "category": "other",
+    "needs_human": false
+  },
+  "pr20": {
+    "category": "other",
+    "needs_human": false
+  },
+  "pr21": {
+    "category": "other",
+    "needs_human": false
+  },
+  "pr22": {
+    "category": "docs",
+    "needs_human": true
+  }
+}
