@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>OSS-Triage · Katkıları anlamlandır.</title>
+  <title>prism-review · Katkıları anlamlandır.</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
 </head>
 <body>
 <aside class="sidebar">
-  <a class="brand" href="#dashboard"><span class="brand-icon">⌘</span> oss<span>triage</span><span class="brand-dot">.</span></a>
+  <a class="brand" href="#dashboard" aria-label="prism-review"><span class="brand-icon" aria-hidden="true">⌘</span>prism<span>-review</span><span class="brand-dot">.</span></a>
   <div class="workspace"><div class="avatar">L</div><div><strong>Localhost</strong><small>Hacktoberfest 2026</small></div><span class="workspace-arrow">⌄</span></div>
   <p class="nav-label" data-i18n="workspace">ÇALIŞMA ALANI</p>
   <nav aria-label="Workspace" data-i18n-aria-label="workspace">
@@ -46,6 +46,10 @@
     <label><span data-i18n="description">Açıklama (isteğe bağlı)</span><textarea name="description" rows="3" placeholder="Bu PR hangi sorunu çözüyor?" data-i18n-placeholder="descriptionPlaceholder"></textarea></label>
     <label><span data-i18n="diff">Kod değişiklikleri (diff)</span><textarea name="diff" required rows="5" class="code-input" placeholder="- eski satır&#10;+ yeni satır" data-i18n-placeholder="diffPlaceholder"></textarea></label>
     <p class="form-error" role="alert"></p>
+    <div id="analysis-progress" class="analysis-progress" hidden>
+      <span class="analysis-spinner" aria-hidden="true"></span>
+      <div><p id="analysis-progress-message" role="status" aria-live="polite"></p><small id="analysis-elapsed" aria-live="off"></small></div>
+    </div>
     <button class="primary" type="submit" data-i18n="analyze">✧ Analiz et</button>
   </form>
 </dialog>

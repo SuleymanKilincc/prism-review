@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {analyzePR} from '../api.js';
+import {analyzePR, readHealth} from '../api.js';
 import {messages, translate, localeFor} from '../i18n.js';
 import {demoPRs, englishDemoPRs} from '../data.js';
-import {filterPRs} from '../logic.js';
+import {filterPRs, formatSeconds} from '../logic.js';
 
 const result = {category: 'typo', quality: 5, risk: 'low', summary: 'Typo fixed.', reasons: [], missing: [], needs_human: false, suggested_reply: 'Thank you!'};
 const input = {title: 'Fix typo', description: '', diff: '-recieve\n+receive'};
@@ -91,4 +91,39 @@ test('optional integration check against a running fake-model backend', {skip: !
   assert.equal(output.category, 'typo');
   assert.equal(output.quality, 5);
   assert.equal(output.risk, 'low');
+});
+
+test('health distinguishes a reported fake model, Gemma, and an omitted model', async () => {
+  for (const model of ['fake', 'gemma4:e4b', undefined, '', 42]) {
+    const health = await readHealth({baseUrl: 'http://localhost:8000/', fetchImpl: async url => {
+      assert.equal(url, 'http://localhost:8000/health');
+      return new Response(JSON.stringify({status: 'ok', model}));
+    }});
+    assert.deepEqual(health, {status: 'ok', model: typeof model === 'string' && model ? model : null});
+  }
+});
+
+test('failed health never implies a fake model', async () => {
+  for (const response of [new Response('not JSON'), new Response('{}'), new Response('', {status: 503})]) {
+    assert.deepEqual(await readHealth({baseUrl: 'http://localhost:8000', fetchImpl: async () => response}), {status: 'unavailable', model: null});
+  }
+  assert.deepEqual(await readHealth({baseUrl: 'http://localhost:8000', fetchImpl: async () => {throw new TypeError('offline');}}), {status: 'unavailable', model: null});
+});
+
+test('duration formatting follows the UI locale without inventing negative or invalid times', () => {
+  assert.equal(formatSeconds(3.24, 'en'), '3.2');
+  assert.equal(formatSeconds(3.24, 'tr'), '3,2');
+  assert.equal(formatSeconds(-2, 'en'), '0.0');
+  assert.equal(formatSeconds(NaN, 'en'), '0.0');
+});
+
+test('frontend branding and visible decision notice are consistent', async () => {
+  const files = ['index.html', 'app.js', 'i18n.js', 'README.md'];
+  for (const file of files) {
+    const source = await readFile(new URL('../' + file, import.meta.url), 'utf8');
+    assert.doesNotMatch(source, /OSS-Triage|oss-triage|osstriage/, file);
+  }
+  assert.match(messages.en.humanTitle, /Nothing is sent or merged automatically/);
+  assert.match(messages.tr.humanTitle, /karar sende/);
+  assert.doesNotMatch(messages.en.apiAssessment, /FAKE MODEL/);
 });
