@@ -9,3 +9,10 @@ export function validateAnalysis(value){
  if (!value || typeof value!=='object' || !['bugfix','feature','docs','typo','refactor','spam','other'].includes(value.category) || !Number.isInteger(value.quality) || value.quality<1 || value.quality>5 || !['low','medium','high'].includes(value.risk) || typeof value.summary!=='string' || typeof value.suggested_reply!=='string' || typeof value.needs_human!=='boolean' || !Array.isArray(value.reasons) || !value.reasons.every(v=>typeof v==='string') || !Array.isArray(value.missing) || !value.missing.every(v=>typeof v==='string')) throw new Error('Backend yanıtı beklenen analiz şemasına uymuyor. README içindeki API sözleşmesini kontrol edin.');
  return value;
 }
+
+// Client-observed request duration, not an isolated model-inference benchmark.
+export function formatSeconds(seconds, language) {
+ return new Intl.NumberFormat(language==='en'?'en-GB':'tr-TR', {
+  minimumFractionDigits:1, maximumFractionDigits:1
+ }).format(Math.max(0, Number.isFinite(seconds)?seconds:0));
+}
