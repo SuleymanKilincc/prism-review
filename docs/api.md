@@ -42,11 +42,11 @@ The frontend talks to the backend only through this contract. Change it only aft
 | category | text | bugfix, feature, docs, typo, refactor, spam, other |
 | quality | whole number | 1 (noise) to 5 (ready to merge) |
 | risk | text | low, medium, high |
-| summary | text | One or two sentences |
-| reasons | list of text | Why the model decided this (at most 4) |
+| summary | text | One or two sentences, at most 240 characters |
+| reasons | list of text | Why the model decided this (at most 4 short items) |
 | missing | list of text | What is missing, e.g. "tests" (at most 4) |
 | needs_human | true / false | A person must look at this pull request |
-| suggested_reply | text | A polite reply the reviewer can send |
+| suggested_reply | text | A polite reply the reviewer can send, at most 400 characters |
 
 ## Errors
 
