@@ -1,0 +1,805 @@
+{
+ "when": "2026-10-18T01:53:00",
+ "model": "gemma4:e4b",
+ "git_commit": "b0adfff",
+ "prompt_sha256": "189e450025c0",
+ "max_diff_chars": 6000,
+ "cases_file": "eval/raw",
+ "unlabelled_skipped": [],
+ "summary": {
+  "cases": 22,
+  "failed": 0,
+  "category_accuracy": "5/22",
+  "needs_human_agreement": "9/22",
+  "first_try_valid_json": "22/22",
+  "seconds_mean": 1.89,
+  "seconds_median": 1.83,
+  "seconds_max": 2.82,
+  "wrong_cases": [
+   {
+    "id": "pr01",
+    "url": "https://github.com/mozdevz/Hacktoberfest/pull/127",
+    "problem": "category",
+    "expected": "typo",
+    "got": "spam"
+   },
+   {
+    "id": "pr01",
+    "url": "https://github.com/mozdevz/Hacktoberfest/pull/127",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr02",
+    "url": "https://github.com/PeriodicProgrammer/Wiki_maintance_tools/pull/2",
+    "problem": "category",
+    "expected": "feature",
+    "got": "other"
+   },
+   {
+    "id": "pr04",
+    "url": "https://github.com/Neko-Catpital-Labs/Invoker/pull/12102",
+    "problem": "needs_human",
+    "expected": true,
+    "got": false
+   },
+   {
+    "id": "pr05",
+    "url": "https://github.com/NixOS/nixpkgs/pull/564939",
+    "problem": "category",
+    "expected": "other",
+    "got": "refactor"
+   },
+   {
+    "id": "pr06",
+    "url": "https://github.com/LiangJianJi/QCefView/pull/6",
+    "problem": "category",
+    "expected": "spam",
+    "got": "bugfix"
+   },
+   {
+    "id": "pr06",
+    "url": "https://github.com/LiangJianJi/QCefView/pull/6",
+    "problem": "needs_human",
+    "expected": true,
+    "got": false
+   },
+   {
+    "id": "pr07",
+    "url": "https://github.com/awest813/OpenWCIII/pull/97",
+    "problem": "needs_human",
+    "expected": true,
+    "got": false
+   },
+   {
+    "id": "pr08",
+    "url": "https://github.com/yarikshevchuk/DevOps-Demo1/pull/3",
+    "problem": "category",
+    "expected": "spam",
+    "got": "refactor"
+   },
+   {
+    "id": "pr08",
+    "url": "https://github.com/yarikshevchuk/DevOps-Demo1/pull/3",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr09",
+    "url": "https://github.com/MDGChamomile/pi-subagent/pull/76",
+    "problem": "category",
+    "expected": "feature",
+    "got": "refactor"
+   },
+   {
+    "id": "pr09",
+    "url": "https://github.com/MDGChamomile/pi-subagent/pull/76",
+    "problem": "needs_human",
+    "expected": true,
+    "got": false
+   },
+   {
+    "id": "pr10",
+    "url": "https://github.com/RoshanC-2411/MY-FIRTS-REPO/pull/1",
+    "problem": "category",
+    "expected": "docs",
+    "got": "spam"
+   },
+   {
+    "id": "pr10",
+    "url": "https://github.com/RoshanC-2411/MY-FIRTS-REPO/pull/1",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr11",
+    "url": "https://github.com/firstcontributions/first-contributions/pull/9935",
+    "problem": "category",
+    "expected": "docs",
+    "got": "spam"
+   },
+   {
+    "id": "pr11",
+    "url": "https://github.com/firstcontributions/first-contributions/pull/9935",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr14",
+    "url": "https://github.com/odisfm/hapi/pull/130",
+    "problem": "category",
+    "expected": "refactor",
+    "got": "typo"
+   },
+   {
+    "id": "pr14",
+    "url": "https://github.com/odisfm/hapi/pull/130",
+    "problem": "needs_human",
+    "expected": true,
+    "got": false
+   },
+   {
+    "id": "pr15",
+    "url": "https://github.com/PurpleI2P/i2pd/pull/2599",
+    "problem": "category",
+    "expected": "refactor",
+    "got": "typo"
+   },
+   {
+    "id": "pr15",
+    "url": "https://github.com/PurpleI2P/i2pd/pull/2599",
+    "problem": "needs_human",
+    "expected": true,
+    "got": false
+   },
+   {
+    "id": "pr16",
+    "url": "https://github.com/OpenBMB/MiniCPM-Desk-Pet/pull/8",
+    "problem": "category",
+    "expected": "other",
+    "got": "bugfix"
+   },
+   {
+    "id": "pr17",
+    "url": "https://github.com/TNO/Renaissance.Py/pull/267",
+    "problem": "category",
+    "expected": "typo",
+    "got": "docs"
+   },
+   {
+    "id": "pr18",
+    "url": "https://github.com/HackSocNotts/hacksocnotts.co.uk-deprecated/pull/13",
+    "problem": "category",
+    "expected": "docs",
+    "got": "spam"
+   },
+   {
+    "id": "pr18",
+    "url": "https://github.com/HackSocNotts/hacksocnotts.co.uk-deprecated/pull/13",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr19",
+    "url": "https://github.com/hypergonial/hikari-arc/pull/220",
+    "problem": "category",
+    "expected": "other",
+    "got": "feature"
+   },
+   {
+    "id": "pr19",
+    "url": "https://github.com/hypergonial/hikari-arc/pull/220",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr20",
+    "url": "https://github.com/tiahogeraldjoel-eng/Cloud-claude-tiaho/pull/51",
+    "problem": "category",
+    "expected": "other",
+    "got": "bugfix"
+   },
+   {
+    "id": "pr20",
+    "url": "https://github.com/tiahogeraldjoel-eng/Cloud-claude-tiaho/pull/51",
+    "problem": "needs_human",
+    "expected": false,
+    "got": true
+   },
+   {
+    "id": "pr21",
+    "url": "https://github.com/Ivy-Interactive/edit-counter/pull/5",
+    "problem": "category",
+    "expected": "other",
+    "got": "feature"
+   },
+   {
+    "id": "pr22",
+    "url": "https://github.com/C0D1NG/C0D1NG/pull/102",
+    "problem": "category",
+    "expected": "docs",
+    "got": "spam"
+   }
+  ]
+ },
+ "results": [
+  {
+   "id": "pr01",
+   "url": "https://github.com/mozdevz/Hacktoberfest/pull/127",
+   "status": "ok",
+   "got": {
+    "category": "spam",
+    "quality": 1,
+    "risk": "low",
+    "summary": "This PR only adds a line to the README.md file to list a contributor, which appears to be for Hacktoberfest.",
+    "reasons": [
+     "The change adds no functional value.",
+     "The description suggests this is for Hacktoberfest.",
+     "The diff only adds a single, repetitive line."
+    ],
+    "missing": [],
+    "needs_human": true,
+    "suggested_reply": "Thanks for contributing! However, this PR seems to only add a line to the README for Hacktoberfest. Could you please ensure the changes add meaningful content or fix something in the project?"
+   },
+   "expected": {
+    "category": "typo",
+    "needs_human": false
+   },
+   "seconds": 1.67,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr02",
+   "url": "https://github.com/PeriodicProgrammer/Wiki_maintance_tools/pull/2",
+   "status": "ok",
+   "got": {
+    "category": "other",
+    "quality": 4,
+    "risk": "medium",
+    "summary": "This PR updates the GitHub Actions workflow to explicitly grant read access to contents and write access to pull requests.",
+    "reasons": [
+     "Modifies CI/CD configuration",
+     "Changes permissions in workflow file"
+    ],
+    "missing": [],
+    "needs_human": true,
+    "suggested_reply": "Thanks for updating the workflow permissions. Since this touches CI/CD configuration, could you provide a brief explanation of why these specific permissions were needed for the tests workflow?"
+   },
+   "expected": {
+    "category": "feature",
+    "needs_human": true
+   },
+   "seconds": 1.41,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr03",
+   "url": "https://github.com/febog/conselva-budget/pull/157",
+   "status": "ok",
+   "got": {
+    "category": "typo",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Corrects a minor HTML typo in the caption tag within the Requests Index page.",
+    "reasons": [
+     "Fixes a missing closing angle bracket in the caption tag.",
+     "The change is very small and localized."
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "This looks like a small typo fix in the caption tag. Thanks for catching that!"
+   },
+   "expected": {
+    "category": "typo",
+    "needs_human": false
+   },
+   "seconds": 1.34,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr04",
+   "url": "https://github.com/Neko-Catpital-Labs/Invoker/pull/12102",
+   "status": "ok",
+   "got": {
+    "category": "refactor",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Extracts planning mention routing logic into a new function, `routePlanningMention`, to decouple it from `SlackSurface`.",
+    "reasons": [
+     "Refactors logic into a dedicated function.",
+     "Introduces new types (`MentionMessage`, `PlanningMention`).",
+     "Updates `SlackSurface` to use the new routing function.",
+     "Behavior appears unchanged based on description."
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": false,
+    "suggested_reply": "This looks like a clean refactor to extract the planning mention logic. The changes seem well-scoped and the description clearly outlines the intent. I'll take a look at the implementation details now."
+   },
+   "expected": {
+    "category": "refactor",
+    "needs_human": true
+   },
+   "seconds": 2.67,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr05",
+   "url": "https://github.com/NixOS/nixpkgs/pull/564939",
+   "status": "ok",
+   "got": {
+    "category": "refactor",
+    "quality": 4,
+    "risk": "medium",
+    "summary": "This PR updates sigtool to use the nix-community fork, bumps the version, and adds libplist as a build dependency.",
+    "reasons": [
+     "The source repository is moved to nix-community.",
+     "The version number is updated from 0.1.3 to 0.2.2.",
+     "A patch file was removed, and libplist was added as a dependency.",
+     "The maintainer is updated to viraptor."
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": true,
+    "suggested_reply": "This looks like a significant update to move sigtool to the nix-community fork. I see the version bump and dependency changes. Could you provide more context or tests regarding the addition of libplist and the removal of the GCC patch?"
+   },
+   "expected": {
+    "category": "other",
+    "needs_human": true
+   },
+   "seconds": 2.19,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr06",
+   "url": "https://github.com/LiangJianJi/QCefView/pull/6",
+   "status": "ok",
+   "got": {
+    "category": "bugfix",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Adds a null check for qBrowserWindow_ in eventFilter to prevent a null pointer dereference crash during application shutdown.",
+    "reasons": [
+     "Fixes a specific crash scenario during event loop processing.",
+     "The change is localized and addresses a race condition.",
+     "The logic seems sound based on the description."
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": false,
+    "suggested_reply": "This looks like a solid fix for the null pointer dereference issue during shutdown. The null check seems correctly placed to prevent the crash described. Could you add a unit test case that simulates this nested event loop scenario?"
+   },
+   "expected": {
+    "category": "spam",
+    "needs_human": true
+   },
+   "seconds": 2.31,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr07",
+   "url": "https://github.com/awest813/OpenWCIII/pull/97",
+   "status": "ok",
+   "got": {
+    "category": "bugfix",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Adds null checks to prevent runtime crashes in ABActionIf and ensures null safety for IssuePointOrderLoc native calls.",
+    "reasons": [
+     "Fixes NPE in ABActionIf when elseActions is null.",
+     "Adds bounds and null checks for IssuePointOrderLoc arguments.",
+     "Addresses two reported reproducible runtime crashes.",
+     "Changes are localized and appear safe."
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": false,
+    "suggested_reply": "This looks like a solid fix for the reported crashes. The null checks in both ABActionIf and IssuePointOrderLoc seem appropriate. Could you confirm if there are specific unit tests covering these edge cases?"
+   },
+   "expected": {
+    "category": "bugfix",
+    "needs_human": true
+   },
+   "seconds": 1.92,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr08",
+   "url": "https://github.com/yarikshevchuk/DevOps-Demo1/pull/3",
+   "status": "ok",
+   "got": {
+    "category": "refactor",
+    "quality": 4,
+    "risk": "medium",
+    "summary": "This PR updates GitHub Actions workflow permissions and changes the token used for creating pull requests from a secret to the default GITHUB_TOKEN.",
+    "reasons": [
+     "Changes permissions in the workflow file.",
+     "Switches token usage from a custom secret to GITHUB_TOKEN.",
+     "The change modifies a CI/CD configuration file."
+    ],
+    "missing": [
+     "description"
+    ],
+    "needs_human": true,
+    "suggested_reply": "This looks like a change to the workflow permissions and token usage. Could you provide a brief description explaining the motivation behind updating these settings? Thanks!"
+   },
+   "expected": {
+    "category": "spam",
+    "needs_human": false
+   },
+   "seconds": 1.86,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr09",
+   "url": "https://github.com/MDGChamomile/pi-subagent/pull/76",
+   "status": "ok",
+   "got": {
+    "category": "refactor",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Extracts budget telemetry validation into a private function and adds type checking against BudgetTelemetry, preserving existing behavior.",
+    "reasons": [
+     "Refactors validation logic into a dedicated function.",
+     "Introduces type checking for telemetry fields.",
+     "Tests are updated to cover the new validation boundaries.",
+     "Behavior appears preserved based on description."
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": false,
+    "suggested_reply": "This looks like a solid refactor to improve type safety around telemetry validation. The tests seem comprehensive for covering the new validation boundaries. Let me know if you'd like me to look closer at any specific test case!"
+   },
+   "expected": {
+    "category": "feature",
+    "needs_human": true
+   },
+   "seconds": 2.82,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr10",
+   "url": "https://github.com/RoshanC-2411/MY-FIRTS-REPO/pull/1",
+   "status": "ok",
+   "got": {
+    "category": "spam",
+    "quality": 1,
+    "risk": "low",
+    "summary": "The pull request only adds a file named README.md containing the text 'Improved documentation'.",
+    "reasons": [
+     "The change adds no functional value.",
+     "The content is minimal and appears to be placeholder text."
+    ],
+    "missing": [
+     "Substantive documentation"
+    ],
+    "needs_human": true,
+    "suggested_reply": "It looks like this PR only adds a README file with a single line of text. Could you please provide the actual documentation content you intended to add?"
+   },
+   "expected": {
+    "category": "docs",
+    "needs_human": false
+   },
+   "seconds": 1.5,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr11",
+   "url": "https://github.com/firstcontributions/first-contributions/pull/9935",
+   "status": "ok",
+   "got": {
+    "category": "spam",
+    "quality": 1,
+    "risk": "low",
+    "summary": "This PR only adds and then removes a contributor's name, likely for Hacktoberfest participation.",
+    "reasons": [
+     "The change adds no functional value.",
+     "The change is purely cosmetic/noise.",
+     "The description mentions Hacktoberfest."
+    ],
+    "missing": [],
+    "needs_human": true,
+    "suggested_reply": "Thanks for contributing! However, this PR only adds and then removes a name, which doesn't seem to add lasting value to the repository. Could you please submit a PR with a functional or documentation change?"
+   },
+   "expected": {
+    "category": "docs",
+    "needs_human": false
+   },
+   "seconds": 1.58,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr12",
+   "url": "https://github.com/reihaneyousefi04-rgb/collaboration-demo/pull/4",
+   "status": "ok",
+   "got": {
+    "category": "docs",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Updates README.md to include a section detailing the project's contribution workflow, clarifying the process for new contributors.",
+    "reasons": [
+     "Adds helpful workflow explanation",
+     "Improves clarity for new contributors"
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "This looks like a helpful addition to the README! The workflow explanation is clear and should assist new contributors."
+   },
+   "expected": {
+    "category": "docs",
+    "needs_human": false
+   },
+   "seconds": 1.35,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr13",
+   "url": "https://github.com/nostr-protocol/nips/pull/2503",
+   "status": "ok",
+   "got": {
+    "category": "typo",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Corrects a typo in the documentation file 34.md, changing 'identifer' to 'identifier' and 'prefered' to 'preferred'.",
+    "reasons": [
+     "Fixes a spelling error in the documentation.",
+     "The change is minor and localized to a single file."
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "This looks like a small typo fix in the documentation. Thanks for catching that!"
+   },
+   "expected": {
+    "category": "typo",
+    "needs_human": false
+   },
+   "seconds": 1.51,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr14",
+   "url": "https://github.com/odisfm/hapi/pull/130",
+   "status": "ok",
+   "got": {
+    "category": "typo",
+    "quality": 4,
+    "risk": "low",
+    "summary": "This PR corrects missing colons in environment variable assignments within the deployment workflow file.",
+    "reasons": [
+     "Fixes syntax errors in environment variable definitions.",
+     "The change is minor and confined to a CI/CD file."
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "It looks like you fixed some missing colons in the environment variable definitions in the deploy workflow. This seems like a small but necessary correction!"
+   },
+   "expected": {
+    "category": "refactor",
+    "needs_human": true
+   },
+   "seconds": 1.6,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr15",
+   "url": "https://github.com/PurpleI2P/i2pd/pull/2599",
+   "status": "ok",
+   "got": {
+    "category": "typo",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Corrects two minor typos in key names within TorrentsRPC.cpp: 'isDowloadingFrom' to 'isDownloadingFrom' and 'clientIsIntersted' to 'clientIsInterested'.",
+    "reasons": [
+     "Fixes a spelling error in a key name.",
+     "Fixes a spelling error in another key name.",
+     "The changes are small and localized."
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "This looks like a good cleanup of minor typos in the RPC key names. Thanks for catching these!"
+   },
+   "expected": {
+    "category": "refactor",
+    "needs_human": true
+   },
+   "seconds": 1.73,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr16",
+   "url": "https://github.com/OpenBMB/MiniCPM-Desk-Pet/pull/8",
+   "status": "ok",
+   "got": {
+    "category": "bugfix",
+    "quality": 4,
+    "risk": "low",
+    "summary": "This PR addresses potential crashes by adding null checks in permission.js and stripping proxy environment variables in minicpm-chat.js.",
+    "reasons": [
+     "Adds null check in permission.js",
+     "Removes proxy env vars in minicpm-chat.js",
+     "Fixes potential null reference issues",
+     "Addresses SOCKS proxy related crashes"
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": false,
+    "suggested_reply": "This looks like a solid fix for stability issues. The changes in both files seem targeted. Could you add some tests to cover the null checks and proxy stripping logic?"
+   },
+   "expected": {
+    "category": "other",
+    "needs_human": false
+   },
+   "seconds": 1.91,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr17",
+   "url": "https://github.com/TNO/Renaissance.Py/pull/267",
+   "status": "ok",
+   "got": {
+    "category": "docs",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Updates the docstring for TextSegment to clarify that it can represent any consecutive piece of text, not just syntactic constructs.",
+    "reasons": [
+     "Clarifies the scope of TextSegment instances",
+     "Improves documentation accuracy",
+     "No functional code changes"
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "This looks like a helpful clarification in the docstring. Thanks for improving the documentation!"
+   },
+   "expected": {
+    "category": "typo",
+    "needs_human": false
+   },
+   "seconds": 1.41,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr18",
+   "url": "https://github.com/HackSocNotts/hacksocnotts.co.uk-deprecated/pull/13",
+   "status": "ok",
+   "got": {
+    "category": "spam",
+    "quality": 1,
+    "risk": "low",
+    "summary": "This PR only adds a personal note to a Hacktoberfest post, which doesn't add functional value to the repository.",
+    "reasons": [
+     "The change is purely self-promotional.",
+     "It adds no functional value to the project.",
+     "The description mentions Hacktoberfest."
+    ],
+    "missing": [],
+    "needs_human": true,
+    "suggested_reply": "Thanks for contributing! However, this change seems to be just adding your name to a list for Hacktoberfest. For future PRs, please focus on adding functional code, documentation, or bug fixes to the project itself."
+   },
+   "expected": {
+    "category": "docs",
+    "needs_human": false
+   },
+   "seconds": 1.81,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr19",
+   "url": "https://github.com/hypergonial/hikari-arc/pull/220",
+   "status": "ok",
+   "got": {
+    "category": "feature",
+    "quality": 4,
+    "risk": "medium",
+    "summary": "Adds support for resolving type aliases defined using Python 3.12's `type` statements when parsing command signatures.",
+    "reasons": [
+     "Implements logic to handle `TypeAliasType` from Python 3.12+",
+     "Updates `parse_command_signature` to resolve these types",
+     "Adds corresponding test case in `test_sigparse.py`",
+     "Updates `changelog.md` to document the feature"
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": true,
+    "suggested_reply": "This looks like a solid feature addition to support Python 3.12 type aliases. I noticed the test case for type statements relies on `exec` and might be brittle; could we review the test setup further?"
+   },
+   "expected": {
+    "category": "other",
+    "needs_human": false
+   },
+   "seconds": 2.68,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr20",
+   "url": "https://github.com/tiahogeraldjoel-eng/Cloud-claude-tiaho/pull/51",
+   "status": "ok",
+   "got": {
+    "category": "bugfix",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Adds a guard clause in `runPreOpenScan` to handle cases where `scrapeBRVM()` returns null or insufficient data, falling back to simulated data.",
+    "reasons": [
+     "Fixes a potential crash when scraping returns null.",
+     "Implements a fallback mechanism for data integrity.",
+     "The change is localized to one function.",
+     "The logic seems sound based on the description."
+    ],
+    "missing": [
+     "tests"
+    ],
+    "needs_human": true,
+    "suggested_reply": "This looks like a solid fix for the null/insufficient data issue in `runPreOpenScan`. Could you add some tests to cover the scenario where `scrapeBRVM()` returns null or an array with less than 5 items?"
+   },
+   "expected": {
+    "category": "other",
+    "needs_human": false
+   },
+   "seconds": 2.19,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr21",
+   "url": "https://github.com/Ivy-Interactive/edit-counter/pull/5",
+   "status": "ok",
+   "got": {
+    "category": "feature",
+    "quality": 4,
+    "risk": "low",
+    "summary": "Adds support for ignoring paths during analysis by accepting an optional DiffConfig in analyze_paths and passing it from the CLI.",
+    "reasons": [
+     "Implements path filtering logic in analyze_paths.",
+     "Updates CLI command handler in main.rs to pass configuration.",
+     "Adds comprehensive unit tests for the new filtering behavior.",
+     "The change seems well-scoped and tested."
+    ],
+    "missing": [],
+    "needs_human": false,
+    "suggested_reply": "This looks like a solid feature addition with good test coverage for the ignore patterns. The implementation seems clean. No immediate concerns from my side!"
+   },
+   "expected": {
+    "category": "other",
+    "needs_human": false
+   },
+   "seconds": 2.18,
+   "first_try_valid": true
+  },
+  {
+   "id": "pr22",
+   "url": "https://github.com/C0D1NG/C0D1NG/pull/102",
+   "status": "ok",
+   "got": {
+    "category": "spam",
+    "quality": 1,
+    "risk": "low",
+    "summary": "This PR only adds a line to the Contributors.md file to list the contributor's name and link, likely for Hacktoberfest.",
+    "reasons": [
+     "The change adds no functional value to the codebase.",
+     "The description mentions Hacktoberfest.",
+     "The diff is minimal and appears to be noise."
+    ],
+    "missing": [],
+    "needs_human": true,
+    "suggested_reply": "Thanks for contributing! However, this PR seems to just add your name to the contributors list. If this is for Hacktoberfest, please ensure the change adds meaningful content or fixes something in the project."
+   },
+   "expected": {
+    "category": "docs",
+    "needs_human": true
+   },
+   "seconds": 1.84,
+   "first_try_valid": true
+  }
+ ]
+}

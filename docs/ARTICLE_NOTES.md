@@ -65,3 +65,42 @@ Still not caught by the guard: persuasion without command words (inj10, new06) a
 - The "held-out 6" were written before the change but by the same person who then wrote the patterns, who had read them. 6/6 is therefore NOT independent. A real test needs attacks written by someone who has not seen the guard (Mehmet or Eren), run once, before any further change.
 - The guard is still a phrase list. Turkish coverage is partial and other languages are not covered at all.
 - The model alone caught 3 to 7 of each set and mentioned instructions in at most 1; the guard does most of the work, and it was built by looking at attacks we could think of.
+
+## Evaluation on 22 real PRs (18 Oct 2026, ~01:52)
+
+Model `gemma4:e4b`, temperature 0, think=False, num_ctx 8192, code at commit `b0adfff` (guard v2 included), prompt hash `189e450025c0` (the same as the current prompt). The prompt was last changed (v2, commit `35314e2`) before these 22 PRs were downloaded, and it was not changed after looking at them. Cases: `eval/raw` (22 real public PRs, all labelled, none skipped). Nothing failed (no 503). The result files do not record which label file was used; we recovered it by comparing their `expected` fields with `eval/labels_*.json`.
+
+### Two runs, same model answers, different labellers
+
+| | Mehmet's labels | Eren's labels |
+|---|---|---|
+| Result file | `eval/results/20261018-015213.json` | `eval/results/20261018-015300.json` |
+| Category correct | 19 / 22 | 5 / 22 |
+| `needs_human` agrees | 12 / 22 | 9 / 22 |
+| Valid JSON on first try | 22 / 22 | 22 / 22 |
+| Seconds per case (warm-up excluded) | median 1.78, mean 1.93, max 2.82 | median 1.83, mean 1.89, max 2.82 |
+
+The model answers are the same in both runs (temperature 0); only the labels differ. Timing differences between the two are noise.
+
+### How much the labellers agree with each other (22 PRs)
+
+| Pair | Same category | Same `needs_human` |
+|---|---|---|
+| Mehmet - Eren | 5 / 22 | 15 / 22 |
+| Mehmet - Codex (AI-drafted labels) | 16 / 22 | 15 / 22 |
+| Eren - Codex (AI-drafted labels) | 7 / 22 | 16 / 22 |
+
+The two humans agree on the category in only 5 of 22 cases. So "19/22" and "5/22" mostly show whose labels we used, not how good the model is. We have not yet discussed the disagreements or written agreed labels (`eval/labels.json` does not exist).
+
+### Direction of the `needs_human` errors (Mehmet's labels, 10 wrong)
+
+- **6 too cautious** (model asked for a human, label says no): pr01, pr10, pr11, pr18, pr19, pr22.
+- **4 not cautious enough** (model said no human needed, label says yes): pr07, pr14, pr16, pr20. By their titles, pr07, pr16 and pr20 are crash fixes (null checks); the model called all three `bugfix`, risk low, `needs_human` false. pr14 is a "fix: typo" change inside a deploy workflow; the model called it `typo`, Mehmet labelled it `bugfix`. The risky direction is the second one: the tool says "no human needed" where a person wanted to look.
+- Under Eren's labels: 7 too cautious (pr01, pr08, pr10, pr11, pr18, pr19, pr20) and 6 not cautious enough (pr04, pr06, pr07, pr09, pr14, pr15).
+
+### Limitations (keep them in the article)
+- 22 cases only, so every number is rough. These are real PRs found by keyword searches, not a random sample.
+- The result depends heavily on the labeller (see the 5 / 22 agreement above). Single-labeller accuracy is not a property of the model.
+- There is no tuning/test split yet: all 22 cases are in one group. We did not tune the prompt on them, but we also have no separate, newer test set.
+- Time per case is the model call only, on one RTX 4060 laptop, after warm-up; it is not the full request time in the browser.
+- `needs_human` agreement of 12 / 22 and 9 / 22 is not better than the humans agree with each other (15 / 22), so we cannot say the model is worse or better than a second person on this question.
