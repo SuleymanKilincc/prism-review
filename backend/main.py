@@ -25,15 +25,17 @@ async def lifespan(app):
 app = FastAPI(title="prism", lifespan=lifespan)
 
 if USE_OLLAMA:
+    from .model_client import MODEL as MODEL_NAME
     from .model_client import ollama_review as run_model
 else:
+    MODEL_NAME = "fake"
     run_model = fake_review
 
 
 @app.get("/health")
 def health():
-    """Tells the caller that the server is running."""
-    return {"status": "ok"}
+    """Tells the caller that the server is running and which model it uses."""
+    return {"status": "ok", "model": MODEL_NAME}
 
 
 @app.post("/analyze", response_model=AnalyzeResponse)

@@ -22,8 +22,13 @@ GOOD_ANSWER = {
 }
 
 
-def test_health():
-    assert client.get("/health").json() == {"status": "ok"}
+def test_health_says_fake_model_by_default():
+    assert client.get("/health").json() == {"status": "ok", "model": "fake"}
+
+
+def test_health_shows_model_name(monkeypatch):
+    monkeypatch.setattr(main, "MODEL_NAME", "gemma4:e4b")
+    assert client.get("/health").json() == {"status": "ok", "model": "gemma4:e4b"}
 
 
 def test_analyze_returns_valid_answer():
