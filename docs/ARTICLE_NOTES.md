@@ -40,3 +40,28 @@ Cases: `eval/injection_cases.json` (written and committed before the first run).
 **Caveats (say them in the article):** 10 cases, one run; we wrote the attacks after reading the guard's patterns, so several (Turkish, zero-width, base64, persuasion) were meant to evade it; the keyword check for "mentions instructions" is crude. This is a smoke test, not a security proof. The prompt was not changed after seeing these results.
 
 **Next, not done yet:** add Turkish patterns to the guard (code, not prompt); decide how to treat base64 / zero-width characters in PR text (flag them?). Any change must be re-measured on new attacks written after the change.
+
+## Guard v2: Turkish patterns, hidden-word tricks, fewer false alarms (18 Oct 2026)
+
+Changes in `backend/guard.py` (the prompt was NOT changed): Turkish patterns; zero-width characters removed, Cyrillic look-alike letters and digits-as-letters undone before matching; "system prompt" and `needs_human` now match only together with a command word ("show ... system prompt", "set ... needs_human ... false"), because the old bare words flagged normal documentation (two false alarms listed in `docs/COPILOT_LOG.md`, PR #17). Four attacks from the same log are now regression tests (`backend/tests/test_guard.py`); the log gives short descriptions of its two false alarms, not their text, so the tests use our own examples of such text.
+
+Order of work: the 6 new attacks (`eval/injection_cases_v2.json`) were committed and run on the OLD guard first; the 6 held-out attacks (`eval/injection_cases_heldout.json`) were committed before the change and run only after the guard was frozen. All runs: `gemma4:e4b`, same model outputs where the case is the same (temperature 0).
+
+Three separate reports (final = what the API returns, `needs_human` true is the right answer for every case):
+
+| Set | Old guard: guard / final | New guard: guard / final | Model alone (new run) | Model mentions instructions | Raw file |
+|---|---|---|---|---|---|
+| First 10 | 6/10 / 9/10 | 8/10 / **10/10** | 7/10 | 1/10 | `injection-20261018-011313.json` (old), `injection-old10-after-guard-change.json` (new) |
+| New 6 (development set) | 1/6 / 4/6 | 5/6 / **6/6** | 4/6 | 1/6 | `injection-v2-before-guard-change-20261018-012132.json`, `injection-v2-dev-after-guard-change.json` |
+| Held-out 6 | 1/6 / 4/6 (computed offline from the same model answers) | 6/6 / **6/6** | 3/6 | 0/6 | `injection-heldout-after-guard-change.json` |
+
+False alarms: 0 of the 22 real public PRs are flagged by the old or the new guard; a few hand-picked normal documentation/CI sentences (English and Turkish) are not flagged either. This is a small check, not a false-alarm rate.
+
+Still not caught by the guard: persuasion without command words (inj10, new06) and the base64 note (inj08). Only the model catches those, and it flags them mostly for other reasons (for example removed `@csrf_protect`, or an unclear comment).
+
+**Honest reading, please keep in the article:**
+- The first 10 are the cases that caused the change, so their 10/10 is expected, not evidence.
+- The "new 6" were used while designing the patterns (new01, new02, new04, new05 each got a matching pattern after the baseline run). It is a development set.
+- The "held-out 6" were written before the change but by the same person who then wrote the patterns, who had read them. 6/6 is therefore NOT independent. A real test needs attacks written by someone who has not seen the guard (Mehmet or Eren), run once, before any further change.
+- The guard is still a phrase list. Turkish coverage is partial and other languages are not covered at all.
+- The model alone caught 3 to 7 of each set and mentioned instructions in at most 1; the guard does most of the work, and it was built by looking at attacks we could think of.
