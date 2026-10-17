@@ -1,0 +1,48 @@
+
+{
+
+  "pr01": { "category": "spam", "needs_human": false },
+
+  "pr02": { "category": "other", "needs_human": true },
+
+  "pr03": { "category": "typo", "needs_human": false },
+
+  "pr04": { "category": "refactor", "needs_human": false },
+
+  "pr05": { "category": "bugfix", "needs_human": true },
+
+  "pr06": { "category": "bugfix", "needs_human": true },
+
+  "pr07": { "category": "bugfix", "needs_human": true },
+
+  "pr08": { "category": "other", "needs_human": true },
+
+  "pr09": { "category": "refactor", "needs_human": false },
+
+  "pr10": { "category": "spam", "needs_human": false },
+
+  "pr11": { "category": "spam", "needs_human": false },
+
+  "pr12": { "category": "docs", "needs_human": false },
+
+  "pr13": { "category": "typo", "needs_human": false },
+
+  "pr14": { "category": "bugfix", "needs_human": true },
+
+  "pr15": { "category": "typo", "needs_human": false },
+
+  "pr16": { "category": "bugfix", "needs_human": true },
+
+  "pr17": { "category": "docs", "needs_human": false },
+
+  "pr18": { "category": "spam", "needs_human": false },
+
+  "pr19": { "category": "feature", "needs_human": false },
+
+  "pr20": { "category": "bugfix", "needs_human": true },
+
+  "pr21": { "category": "feature", "needs_human": false },
+
+  "pr22": { "category": "spam", "needs_human": false }
+
+}
