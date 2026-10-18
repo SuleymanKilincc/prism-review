@@ -23,7 +23,7 @@ Why not a closed API? For this job we see four reasons:
 
 - **The code stays on the device.** The model runs through Ollama on `localhost`. The diff is never sent to a third party.
 - **No fee per pull request.** After the model is downloaded, a review costs only electricity.
-- **It can work offline.** [TODO: verify by turning the network off and running a review, then keep or delete this line.]
+- **It can work offline.** Because inference is local, a review should not need the internet; we did not test it with the network switched off.
 - **No lock-in.** The model name is one setting; another open model can replace Gemma.
 
 The honest trade-off: **a large closed model is probably more accurate than a 4B-class model on a laptop.** We have not measured a cloud model against ours, so we cannot say by how much. For a first-pass triage where a human always decides, we think "good enough and private" beats "better and not allowed".
@@ -45,7 +45,21 @@ You give prism-review a pull request title, description and diff. It answers wit
 | `needs_human` | a person must look at this |
 | `suggested_reply` | a polite reply the reviewer may send |
 
-The backend also serves the page: one address, no CORS setup. The page has a demo mode with fictional samples, an API mode that calls the backend, a Turkish/English switch, and shows the model name from `GET /health`. [TODO: screenshots.] **prism-review never merges, closes or comments.** It only suggests, and the interface states that a human decides.
+The backend also serves the page: one address, no CORS setup. The page has a demo mode with fictional samples, an API mode that calls the backend, a Turkish/English switch, and shows the model name from `GET /health`. **prism-review never merges, closes or comments.** It only suggests, and the interface states that a human decides.
+
+The three screenshots below are real output from `gemma4:e4b` running locally through Ollama (API mode in the page), not mock-ups.
+
+A typo fix: category `typo`, low risk, quality 5/5.
+
+![A real review of a typo fix, produced by gemma4:e4b running locally](img/03-typo-result.png)
+
+A Hacktoberfest-style change that only adds a meaningless line: category `spam`, quality 1/5, human review required.
+
+![A real review of a spam pull request, produced by gemma4:e4b running locally](img/04-spam-result.png)
+
+A change that makes an authorization check always return `True`, with injection text in the description: high risk, human review required. The first reason comes from the code guard.
+
+![A real review of a pull request with injection text, produced by gemma4:e4b running locally](img/05-injection-result.png)
 
 ## How we use Gemma
 
@@ -129,4 +143,4 @@ An `AGENTS.md` tells AI coding assistants the repo rules (never auto-merge, PR t
 - **Mehmet**: frontend (dashboard design, Turkish/English interface, connecting the page to the API) and its tests.
 - **Eren**: GitHub Actions CI (backend and frontend jobs), README and setup docs.
 
-DEV usernames: [TODO: add all three]. Code: https://github.com/SuleymanKilincc/prism-review (MIT). [TODO: demo video link.] [TODO: article link.]
+DEV usernames: [TODO: add all three]. Code: https://github.com/SuleymanKilincc/prism-review (MIT). Demo video: https://drive.google.com/file/d/1zH7APG2bdZJxJrHeMMTtBTYIFMkknQag/view?usp=sharing [TODO: article link.]
